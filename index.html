@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload file to S3</title>
+    <script src="https://unpkg.com/vue@1.0.28/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>S3 Uploader Test</h1>
+  
+      <div v-if="!image">
+        <h2>Select an image</h2>
+        <input type="file" @change="onFileChange" accept="image/jpeg">
+      </div>
+      <div v-else>
+        <img :src="image" />
+        <button v-if="!uploadURL" @click="removeImage">Remove image</button>
+        <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
+      </div>
+      <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
+    </div>
+  
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <script src="./src/app.js"></script>
+     
+    </style>
+  </body>
+</html>
